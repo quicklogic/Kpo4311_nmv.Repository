@@ -24,21 +24,32 @@ namespace Kpo4311.nmv.Main
 
         private void mnOpen_Click(object sender, EventArgs e)
         {
-            try
+            /*try
             {
-                throw new NotImplementedException();
+               //throw new NotImplementedException();
 
-               //throw new Exception("Неправильные входные параметры");
+               throw new Exception("Неправильные входные параметры");
             }
             catch(NotImplementedException ex)
             {
                 MessageBox.Show("Ошибка №1:" + ex.Message);
-                Lib.LogUtility.ErrorLog(ex.Message);                
+                
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Ошибка №2:" + ex.Message);
-            }
+                //Lib.LogUtility.ErrorLog(ex.Message);     
+                Lib.LogUtility.ErrorLog(ex);
+            }*/
+
+            Lib.MockCompanyListCommand loader = new Lib.MockCompanyListCommand();
+            loader.Execute();
+            dgvCompanies.DataSource = loader.companyList;
+        }
+
+        private void mnOpenCompanies_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

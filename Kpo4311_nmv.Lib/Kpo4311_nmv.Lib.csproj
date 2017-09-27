@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="source\AccidentJournal\Company.cs" />
+    <Compile Include="source\AccidentJournal\MockCompanyListCommand.cs" />
     <Compile Include="source\Log\LogUtility.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
