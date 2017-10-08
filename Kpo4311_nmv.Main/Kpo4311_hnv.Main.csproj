@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{038488B4-B738-437B-8859-BD5947FFA3EC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Kpo4311.nmv.Main</RootNamespace>
-    <AssemblyName>Kpo4311_nmv.Main</AssemblyName>
+    <RootNamespace>Kpo4311_hnv.Main</RootNamespace>
+    <AssemblyName>Kpo4311_hnv.Main</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompany.Designer.cs">
+      <DependentUpon>FrmCompany.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +59,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCompany.resx">
+      <DependentUpon>FrmCompany.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +75,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\Kpo4311.nmv.Lib.MockCompanyListCommand.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,9 +90,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kpo4311_nmv.Lib\Kpo4311_nmv.Lib.csproj">
+    <ProjectReference Include="..\Kpo4311_nmv.Lib\Kpo4311_hnv.Lib.csproj">
       <Project>{4b9836dd-baf0-49ce-9e66-d0f427255015}</Project>
-      <Name>Kpo4311_nmv.Lib</Name>
+      <Name>Kpo4311_hnv.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

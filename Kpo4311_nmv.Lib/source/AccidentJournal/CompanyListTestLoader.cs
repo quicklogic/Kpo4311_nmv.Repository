@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Kpo4311.nmv.Lib
+namespace Kpo4311_hnv.Lib
 {
-    public class MockCompanyListCommand
+    public class CompanyListTestLoader: ICompanyListLoader
     {
-        public MockCompanyListCommand()
+       
+        public CompanyListTestLoader()
         {
-
+            this._companyList = new List<Company>() ;
         }
 
         private readonly string _dataFileName = "";
-        private List<Company> _companyList = null;
+        private List<Company> _companyList;
 
         public List<Company> companyList
         {
@@ -29,31 +27,40 @@ namespace Kpo4311.nmv.Lib
                 {
                     Company company = new Company()
                     {
+                        name = "Птицефабрика",
                         category = 1,
                         loss = 12.7,
                         downtime = 4
                     };
+
+                    companyList.Add(company);
                 }
                 {
                     Company company = new Company()
                     {
+                        name = "Теплоцентраль",
                         category = 1,
                         loss = 0.711,
                         downtime = 1
                     };
+
+                    companyList.Add(company);
                 }
                 {
                     Company company = new Company()
                     {
+                        name ="Автосервис",
                         category = 2,
                         loss = 1770.15,
                         downtime = 38
                     };
+
+                    companyList.Add(company);
                 }
             }
             catch (Exception ex)
             {
-                Lib.LogUtility.ErrorLog(ex);
+                LogUtility.ErrorLog(ex);
             }
         }
     }

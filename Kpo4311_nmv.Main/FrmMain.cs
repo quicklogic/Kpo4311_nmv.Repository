@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kpo4311.nmv.Main
+namespace Kpo4311_hnv.Lib
 {
     public partial class FrmMain : Form
     {
@@ -17,39 +11,39 @@ namespace Kpo4311.nmv.Main
             InitializeComponent();
         }
 
+        private List<Company> companyList = new List<Company>();
+
+        private BindingSource bsCompanies = new BindingSource();
+
         private void mnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        
+
         private void mnOpen_Click(object sender, EventArgs e)
         {
-            /*try
-            {
-               //throw new NotImplementedException();
+            //LoadCompanyListCommand loader = new LoadCompanyListCommand(AppGlobalSettings.dataFileName);
+            //ICompanyListLoader loader = new CompanyListSplitFileLoader(AppGlobalSettings.dataFileName);
 
-               throw new Exception("Неправильные входные параметры");
-            }
-            catch(NotImplementedException ex)
-            {
-                MessageBox.Show("Ошибка №1:" + ex.Message);
-                
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Ошибка №2:" + ex.Message);
-                //Lib.LogUtility.ErrorLog(ex.Message);     
-                Lib.LogUtility.ErrorLog(ex);
-            }*/
-
-            Lib.MockCompanyListCommand loader = new Lib.MockCompanyListCommand();
+            ICompanyListLoader loader = new CompanyListTestLoader();
             loader.Execute();
-            dgvCompanies.DataSource = loader.companyList;
+            companyList = loader.companyList;
+            bsCompanies.DataSource =  companyList;
+            dgvCompanies.DataSource = bsCompanies;
+
         }
 
         private void mnOpenCompanies_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            FrmCompany frmCompany = new FrmCompany();
+
+            Company company = (bsCompanies.Current as Company);
+            frmCompany.SetCompany(company);
+
+            frmCompany.ShowDialog();
         }
     }
 }

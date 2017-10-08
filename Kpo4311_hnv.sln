@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kpo4311_nmv.Main", "Kpo4311_nmv.Main\Kpo4311_nmv.Main.csproj", "{038488B4-B738-437B-8859-BD5947FFA3EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kpo4311_hnv.Main", "Kpo4311_nmv.Main\Kpo4311_hnv.Main.csproj", "{038488B4-B738-437B-8859-BD5947FFA3EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kpo4311_nmv.Lib", "Kpo4311_nmv.Lib\Kpo4311_nmv.Lib.csproj", "{4B9836DD-BAF0-49CE-9E66-D0F427255015}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kpo4311_hnv.Lib", "Kpo4311_nmv.Lib\Kpo4311_hnv.Lib.csproj", "{4B9836DD-BAF0-49CE-9E66-D0F427255015}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
