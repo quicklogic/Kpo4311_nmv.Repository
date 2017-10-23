@@ -11,7 +11,6 @@ namespace Kpo4311_hnv.Lib
             this._companyList = new List<Company>() ;
         }
 
-        private readonly string _dataFileName = "";
         private List<Company> _companyList;
 
         public List<Company> companyList

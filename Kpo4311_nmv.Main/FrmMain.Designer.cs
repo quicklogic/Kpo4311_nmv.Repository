@@ -1,4 +1,4 @@
-﻿namespace Kpo4311_hnv.Lib
+﻿namespace Kpo4311_hnv.Main
 {
     partial class FrmMain
     {
@@ -38,6 +38,7 @@
             this.SStatus = new System.Windows.Forms.StatusStrip();
             this.dgvCompanies = new System.Windows.Forms.DataGridView();
             this.mockCompanyListCommandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mnSave = new System.Windows.Forms.ToolStripMenuItem();
             this.MMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mockCompanyListCommandBindingSource)).BeginInit();
@@ -58,7 +59,8 @@
             // 
             this.mmFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnExit,
-            this.mnOpen});
+            this.mnOpen,
+            this.mnSave});
             this.mmFile.Name = "mmFile";
             this.mmFile.Size = new System.Drawing.Size(57, 20);
             this.mmFile.Text = "1&.Файл";
@@ -66,14 +68,14 @@
             // mnExit
             // 
             this.mnExit.Name = "mnExit";
-            this.mnExit.Size = new System.Drawing.Size(121, 22);
+            this.mnExit.Size = new System.Drawing.Size(152, 22);
             this.mnExit.Text = "Выход";
             this.mnExit.Click += new System.EventHandler(this.mnExit_Click);
             // 
             // mnOpen
             // 
             this.mnOpen.Name = "mnOpen";
-            this.mnOpen.Size = new System.Drawing.Size(121, 22);
+            this.mnOpen.Size = new System.Drawing.Size(152, 22);
             this.mnOpen.Text = "Открыть";
             this.mnOpen.Click += new System.EventHandler(this.mnOpen_Click);
             // 
@@ -114,7 +116,14 @@
             // 
             // mockCompanyListCommandBindingSource
             // 
-            this.mockCompanyListCommandBindingSource.DataSource = typeof(Kpo4311_hnv.Lib.CompanyListTestLoader);
+//            this.mockCompanyListCommandBindingSource.DataSource = typeof(Kpo4311_hnv.Lib.CompanyListTestLoader);
+            // 
+            // mnSave
+            // 
+            this.mnSave.Name = "mnSave";
+            this.mnSave.Size = new System.Drawing.Size(152, 22);
+            this.mnSave.Text = "Сохранить";
+            this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
             // FrmMain
             // 
@@ -147,6 +156,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnOpenCompanies;
         private System.Windows.Forms.BindingSource mockCompanyListCommandBindingSource;
         public System.Windows.Forms.DataGridView dgvCompanies;
+        private System.Windows.Forms.ToolStripMenuItem mnSave;
     }
 }
 

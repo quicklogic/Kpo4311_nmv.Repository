@@ -6,13 +6,14 @@ namespace Kpo4311_hnv.Lib
 {
     public class CompanyListSplitFileLoader : ICompanyListLoader
     {
-        public enum LoadStatus { None = 0, Success = 1, FileNameIsEmpty = -1, FileNotExists = -2, GeneralError = -100 };
+        
 
         public CompanyListSplitFileLoader(string dataFileName)
         {
             _dataFileName = dataFileName;
         }
 
+        public enum LoadStatus { None = 0, Success = 1, FileNameIsEmpty = -1, FileNotExists = -2, GeneralError = -100 };
         private string _dataFileName = "";
         private List<Company> _companyList = new List<Company>();
         private LoadStatus _status = LoadStatus.None;
@@ -51,20 +52,21 @@ namespace Kpo4311_hnv.Lib
                         {
                             while (!sr.EndOfStream)
                             {
-                                string str = sr.ReadLine();
+                                
                                try
                                {
+                                    string str = sr.ReadLine();
                                     string[] arr = str.Split('|');
 
                         
-                            Company company = new Company()
-                            {
-                                name = arr[0],
-                                category = int.Parse(arr[1]),
-                                loss = double.Parse(arr[2]),
-                                downtime = int.Parse(arr[3])
-                            };
-                            companyList.Add(company);
+                                    Company company = new Company()
+                                    {
+                                        name = arr[0],
+                                        category = int.Parse(arr[1]),
+                                        loss = double.Parse(arr[2]),
+                                        downtime = int.Parse(arr[3])
+                                    };
+                                    companyList.Add(company);
                         
 
                                      
@@ -73,7 +75,7 @@ namespace Kpo4311_hnv.Lib
                                catch(Exception e)
                                {
                                  _status = LoadStatus.GeneralError;
-                                  Lib.LogUtility.ErrorLog(e);
+                                  LogUtility.ErrorLog(e);
                                }
                             }
                         }
@@ -85,7 +87,7 @@ namespace Kpo4311_hnv.Lib
             }
             catch (Exception ex)
             {
-                Lib.LogUtility.ErrorLog(ex);
+                LogUtility.ErrorLog(ex);
             }
         }
     }

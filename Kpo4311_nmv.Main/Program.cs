@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Kpo4311_hnv.Lib
+namespace Kpo4311_hnv.Main
 {
     static class Program
     {
@@ -11,7 +11,7 @@ namespace Kpo4311_hnv.Lib
         [STAThread]
         static void Main()
         {
-            Kpo4311_hnv.Lib.AppGlobalSettings.Initialize();
+            Lib.AppGlobalSettings.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());

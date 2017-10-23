@@ -45,7 +45,13 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source\AccidentJournal\Company.cs" />
-    <Compile Include="source\AccidentJournal\ICompanyListLoader.cs" />
+    <Compile Include="source\AccidentJournal\CompanyListSplitFileSaver.cs" />
+    <Compile Include="source\AccidentJournal\CompanyListTestSaver.cs" />
+    <Compile Include="source\AbstractFactory\CompanyListSplitFileFactory.cs" />
+    <Compile Include="source\AbstractFactory\CompanyTestFactory.cs" />
+    <Compile Include="source\Interfaces\ICompanyListSaver.cs" />
+    <Compile Include="source\AbstractFactory\ICompanyAbstractFactory.cs" />
+    <Compile Include="source\Interfaces\ICompanyListLoader.cs" />
     <Compile Include="source\AccidentJournal\CompanyListTestLoader.cs" />
     <Compile Include="source\Common\AppGlobalSettings.cs" />
     <Compile Include="source\AccidentJournal\CompanyListSplitFileLoader.cs" />
