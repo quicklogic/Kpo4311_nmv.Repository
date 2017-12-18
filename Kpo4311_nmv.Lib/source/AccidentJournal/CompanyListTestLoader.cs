@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Kpo4311_hnv.Lib.source.Utility.LoadStatuses;
 
 namespace Kpo4311_hnv.Lib
 {
@@ -13,9 +14,16 @@ namespace Kpo4311_hnv.Lib
 
         private List<Company> _companyList;
 
+        private LoadStatus _status = LoadStatus.None;
+
         public List<Company> companyList
         {
             get { return _companyList; }
+        }
+
+        public LoadStatus status
+        {
+            get { return _status; }
         }
 
         public void Execute()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using static Kpo4311_hnv.Lib.source.Utility.LoadStatuses;
 
 namespace Kpo4311_hnv.Lib
 {
@@ -13,7 +14,6 @@ namespace Kpo4311_hnv.Lib
             _dataFileName = dataFileName;
         }
 
-        public enum LoadStatus { None = 0, Success = 1, FileNameIsEmpty = -1, FileNotExists = -2, GeneralError = -100 };
         private string _dataFileName = "";
         private List<Company> _companyList = new List<Company>();
         private LoadStatus _status = LoadStatus.None;
@@ -38,7 +38,7 @@ namespace Kpo4311_hnv.Lib
                     _status = LoadStatus.FileNameIsEmpty;
                     throw new Exception("Не указано имя файла.");
                 }
-                if(!System.IO.File.Exists(_dataFileName))
+                if(!File.Exists(_dataFileName))
                 {
                     _status = LoadStatus.FileNotExists;
                     throw new Exception("Указанного файла не существует.");

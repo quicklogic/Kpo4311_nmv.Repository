@@ -22,6 +22,16 @@
             _logPath = method.AppSettings("logPath");
             _dataFileName = method.AppSettings("dataFileName");
         }
+
+        public static ICompanyAbstractFactory GetCompanyAbstractFactory()
+        {
+            Utility.AppConfigUtility method = new Utility.AppConfigUtility();
+            if (method.AppSettings("project") == "test")
+            {
+                return new CompanyTestFactory();
+            }
+            else return new CompanyListSplitFileFactory();
+        }
     }
 
     

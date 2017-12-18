@@ -10,11 +10,13 @@ namespace Kpo4311_hnv.Main
         public FrmMain()
         {
             InitializeComponent();
+            abstractFactory = AppGlobalSettings.GetCompanyAbstractFactory();
         }
 
 
 
         private List<Company> companyList = new List<Company>();
+
 
         private BindingSource bsCompanies = new BindingSource();
         private ICompanyAbstractFactory abstractFactory;
@@ -36,8 +38,7 @@ namespace Kpo4311_hnv.Main
 
             try
             {
-                ICompanyAbstractFactory factory = new CompanyListSplitFileFactory();
-                companyListLoader = factory.CompanyListSplitFileLoader(AppGlobalSettings.dataFileName);
+                companyListLoader = abstractFactory.CompanyListSplitFileLoader(AppGlobalSettings.dataFileName);
                 companyListLoader.Execute();
                 companyList = companyListLoader.companyList;
                 bsCompanies.DataSource = companyList;
@@ -47,19 +48,6 @@ namespace Kpo4311_hnv.Main
             {
                 LogUtility.ErrorLog(ex);
             }
-
-            //try
-            //{
-            //    ICompanyListLoader loader = new CompanyListTestLoader();
-            //    loader.Execute();
-            //    companyList = loader.companyList;
-            //    bsCompanies.DataSource = companyList;
-            //    dgvCompanies.DataSource = bsCompanies;
-            //}
-            //catch (Exception ex)
-            //{
-            //    LogUtility.ErrorLog(ex);
-            //}
 
         }
 

@@ -50,13 +50,14 @@
     <Compile Include="source\AbstractFactory\CompanyListSplitFileFactory.cs" />
     <Compile Include="source\AbstractFactory\CompanyTestFactory.cs" />
     <Compile Include="source\Interfaces\ICompanyListSaver.cs" />
-    <Compile Include="source\AbstractFactory\ICompanyAbstractFactory.cs" />
+    <Compile Include="source\Interfaces\ICompanyAbstractFactory.cs" />
     <Compile Include="source\Interfaces\ICompanyListLoader.cs" />
     <Compile Include="source\AccidentJournal\CompanyListTestLoader.cs" />
     <Compile Include="source\Common\AppGlobalSettings.cs" />
     <Compile Include="source\AccidentJournal\CompanyListSplitFileLoader.cs" />
     <Compile Include="source\Log\LogUtility.cs" />
     <Compile Include="source\Utility\AppConfigUtility.cs" />
+    <Compile Include="source\Utility\LoadStatus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
