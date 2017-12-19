@@ -8,11 +8,10 @@ namespace Kpo4311_hnv.Tests
     [TestClass]
     public class UnitTest1
     {
-        private static string DATAFILENAME = @"Company.txt";
         [TestMethod]
         public void TestMethod1()
         {
-            ICompanyListLoader loader = AppGlobalSettings.GetCompanyAbstractFactory().CompanyListSplitFileLoader(DATAFILENAME);
+            ICompanyListLoader loader = AppGlobalSettings.GetCompanyAbstractFactory().CompanyListSplitFileLoader(@"Company.txt");
             Assert.AreEqual(LoadStatus.None, loader.status);
 
             loader.Execute();
