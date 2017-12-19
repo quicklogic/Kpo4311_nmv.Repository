@@ -16,14 +16,14 @@ namespace Kpo4311_hnv.Tests
             Assert.AreEqual(LoadStatus.None, loader.status);
 
             loader.Execute();
-
+            Assert.AreNotEqual(LoadStatus.FileNameIsEmpty, loader.status);
+            Assert.AreNotEqual(LoadStatus.FileNotExists, loader.status);
+            Assert.AreNotEqual(LoadStatus.GeneralError, loader.status);
+            Assert.AreNotEqual(LoadStatus.FileNameIsEmpty, loader.status);
             Assert.AreEqual(LoadStatus.Success, loader.status);
             Assert.IsNotNull(loader.companyList);
 
-            foreach (Company p in loader.companyList)
-            {
-                Assert.IsTrue(p.initialize <= DateTime.Now);
-            }
+            
         }
     }
 }

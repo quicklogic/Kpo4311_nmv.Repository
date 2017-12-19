@@ -49,7 +49,6 @@
     <Compile Include="source\AccidentJournal\CompanyListTestSaver.cs" />
     <Compile Include="source\AbstractFactory\CompanyListSplitFileFactory.cs" />
     <Compile Include="source\AbstractFactory\CompanyTestFactory.cs" />
-    <Compile Include="source\Delegats\StatusBarDelegate.cs" />
     <Compile Include="source\Interfaces\ICompanyListSaver.cs" />
     <Compile Include="source\Interfaces\ICompanyAbstractFactory.cs" />
     <Compile Include="source\Interfaces\ICompanyListLoader.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static Kpo4311_hnv.Lib.CompanyListSplitFileLoader;
 using static Kpo4311_hnv.Lib.source.Utility.LoadStatuses;
 
 namespace Kpo4311_hnv.Lib
@@ -7,9 +8,15 @@ namespace Kpo4311_hnv.Lib
     public class CompanyListTestLoader: ICompanyListLoader
     {
        
-        public CompanyListTestLoader()
+        public CompanyListTestLoader() : base()
         {
             this._companyList = new List<Company>() ;
+            _LoadStatus = null;
+        }
+
+        public void SetStatusBar(CompanyListSplitFileLoader.OnStatusBarChangeDelegate LoadStatus)
+        {
+            this._LoadStatus = LoadStatus;
         }
 
         private List<Company> _companyList;
@@ -20,6 +27,14 @@ namespace Kpo4311_hnv.Lib
         {
             get { return _companyList; }
         }
+
+        public delegate void OnStatusBarChangeDelegate1();
+       
+
+
+         OnStatusBarChangeDelegate _LoadStatus = null;
+
+
 
         public LoadStatus status
         {
@@ -41,6 +56,7 @@ namespace Kpo4311_hnv.Lib
                     };
 
                     companyList.Add(company);
+                    _LoadStatus?.Invoke();
                 }
                 {
                     Company company = new Company()
@@ -52,6 +68,7 @@ namespace Kpo4311_hnv.Lib
                     };
 
                     companyList.Add(company);
+                    _LoadStatus?.Invoke();
                 }
                 {
                     Company company = new Company()
@@ -63,6 +80,7 @@ namespace Kpo4311_hnv.Lib
                     };
 
                     companyList.Add(company);
+                    _LoadStatus?.Invoke();
                 }
             }
             catch (Exception ex)

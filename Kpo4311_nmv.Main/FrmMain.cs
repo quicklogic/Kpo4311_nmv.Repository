@@ -13,9 +13,9 @@ namespace Kpo4311_hnv.Main
             InitializeComponent();
             abstractFactory = AppGlobalSettings.GetCompanyAbstractFactory();
 
-            LoadStatusProgressBar.Step = 20;
+            LoadStatusProgressBar.Step = 30;
             LoadStatusProgressBar.Minimum = 0;
-            LoadStatusProgressBar.Maximum = 20;
+            LoadStatusProgressBar.Maximum = 90;
             LoadStatusToolStrip.Text = Convert.ToString(LoadStatus.None);
         }
 
@@ -41,8 +41,8 @@ namespace Kpo4311_hnv.Main
             if (LoadStatusProgressBar.Value != LoadStatusProgressBar.Maximum)
             {
                 LoadStatusProgressBar.PerformStep();
-                LoadStatusToolStrip.Text = companyListLoader.status.ToString();
             }
+            LoadStatusToolStrip.Text = companyListLoader.status.ToString();
         }
 
         private void mnOpen_Click(object sender, EventArgs e)
@@ -50,11 +50,11 @@ namespace Kpo4311_hnv.Main
 
             try
             {
-                StatusBarDelegate dlg = new StatusBarDelegate();
-                dlg.SetStatusBar(this.OnStatusBarChangeDelegate);
+               
+               
                 companyListLoader = abstractFactory.CompanyListSplitFileLoader(AppGlobalSettings.dataFileName);
+                companyListLoader.SetStatusBar(OnStatusBarChangeDelegate);
                 companyListLoader.Execute();
-                dlg.ChangeStatusBar();
                 companyList = companyListLoader.companyList;
                 bsCompanies.DataSource = companyList;
                 dgvCompanies.DataSource = bsCompanies;
