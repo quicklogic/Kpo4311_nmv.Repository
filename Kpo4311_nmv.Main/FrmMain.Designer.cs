@@ -33,13 +33,16 @@
             this.mmFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnSave = new System.Windows.Forms.ToolStripMenuItem();
             this.mmCompanies = new System.Windows.Forms.ToolStripMenuItem();
             this.mnOpenCompanies = new System.Windows.Forms.ToolStripMenuItem();
             this.SStatus = new System.Windows.Forms.StatusStrip();
+            this.LoadStatusToolStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LoadStatusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.dgvCompanies = new System.Windows.Forms.DataGridView();
             this.mockCompanyListCommandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mnSave = new System.Windows.Forms.ToolStripMenuItem();
             this.MMenu.SuspendLayout();
+            this.SStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mockCompanyListCommandBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -68,16 +71,23 @@
             // mnExit
             // 
             this.mnExit.Name = "mnExit";
-            this.mnExit.Size = new System.Drawing.Size(152, 22);
+            this.mnExit.Size = new System.Drawing.Size(132, 22);
             this.mnExit.Text = "Выход";
             this.mnExit.Click += new System.EventHandler(this.mnExit_Click);
             // 
             // mnOpen
             // 
             this.mnOpen.Name = "mnOpen";
-            this.mnOpen.Size = new System.Drawing.Size(152, 22);
+            this.mnOpen.Size = new System.Drawing.Size(132, 22);
             this.mnOpen.Text = "Открыть";
             this.mnOpen.Click += new System.EventHandler(this.mnOpen_Click);
+            // 
+            // mnSave
+            // 
+            this.mnSave.Name = "mnSave";
+            this.mnSave.Size = new System.Drawing.Size(132, 22);
+            this.mnSave.Text = "Сохранить";
+            this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
             // mmCompanies
             // 
@@ -96,11 +106,25 @@
             // 
             // SStatus
             // 
+            this.SStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LoadStatusToolStrip,
+            this.LoadStatusProgressBar});
             this.SStatus.Location = new System.Drawing.Point(0, 239);
             this.SStatus.Name = "SStatus";
             this.SStatus.Size = new System.Drawing.Size(460, 22);
             this.SStatus.TabIndex = 1;
             this.SStatus.Text = "statusStrip1";
+            // 
+            // LoadStatusToolStrip
+            // 
+            this.LoadStatusToolStrip.Name = "LoadStatusToolStrip";
+            this.LoadStatusToolStrip.Size = new System.Drawing.Size(93, 17);
+            this.LoadStatusToolStrip.Text = "LoadStatusLabel";
+            // 
+            // LoadStatusProgressBar
+            // 
+            this.LoadStatusProgressBar.Name = "LoadStatusProgressBar";
+            this.LoadStatusProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
             // dgvCompanies
             // 
@@ -113,17 +137,6 @@
             this.dgvCompanies.ReadOnly = true;
             this.dgvCompanies.Size = new System.Drawing.Size(460, 209);
             this.dgvCompanies.TabIndex = 2;
-            // 
-            // mockCompanyListCommandBindingSource
-            // 
-//            this.mockCompanyListCommandBindingSource.DataSource = typeof(Kpo4311_hnv.Lib.CompanyListTestLoader);
-            // 
-            // mnSave
-            // 
-            this.mnSave.Name = "mnSave";
-            this.mnSave.Size = new System.Drawing.Size(152, 22);
-            this.mnSave.Text = "Сохранить";
-            this.mnSave.Click += new System.EventHandler(this.mnSave_Click);
             // 
             // FrmMain
             // 
@@ -138,6 +151,8 @@
             this.Text = "КПО:4311:Хуснутдинов";
             this.MMenu.ResumeLayout(false);
             this.MMenu.PerformLayout();
+            this.SStatus.ResumeLayout(false);
+            this.SStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompanies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mockCompanyListCommandBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -157,6 +172,8 @@
         private System.Windows.Forms.BindingSource mockCompanyListCommandBindingSource;
         public System.Windows.Forms.DataGridView dgvCompanies;
         private System.Windows.Forms.ToolStripMenuItem mnSave;
+        private System.Windows.Forms.ToolStripStatusLabel LoadStatusToolStrip;
+        private System.Windows.Forms.ToolStripProgressBar LoadStatusProgressBar;
     }
 }
 

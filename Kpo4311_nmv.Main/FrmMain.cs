@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Kpo4311_hnv.Lib;
+using static Kpo4311_hnv.Lib.source.Utility.LoadStatuses;
 
 namespace Kpo4311_hnv.Main
 {
@@ -11,6 +12,11 @@ namespace Kpo4311_hnv.Main
         {
             InitializeComponent();
             abstractFactory = AppGlobalSettings.GetCompanyAbstractFactory();
+
+            LoadStatusProgressBar.Step = 20;
+            LoadStatusProgressBar.Minimum = 0;
+            LoadStatusProgressBar.Maximum = 20;
+            LoadStatusToolStrip.Text = Convert.ToString(LoadStatus.None);
         }
 
 
@@ -29,17 +35,26 @@ namespace Kpo4311_hnv.Main
             Close();
         }
 
-        private void CreateCompanyListLoader(ICompanyAbstractFactory abstractFactory)
+
+        private void OnStatusBarChangeDelegate()
         {
-            
+            if (LoadStatusProgressBar.Value != LoadStatusProgressBar.Maximum)
+            {
+                LoadStatusProgressBar.PerformStep();
+                LoadStatusToolStrip.Text = companyListLoader.status.ToString();
+            }
         }
+
         private void mnOpen_Click(object sender, EventArgs e)
         {
 
             try
             {
+                StatusBarDelegate dlg = new StatusBarDelegate();
+                dlg.SetStatusBar(this.OnStatusBarChangeDelegate);
                 companyListLoader = abstractFactory.CompanyListSplitFileLoader(AppGlobalSettings.dataFileName);
                 companyListLoader.Execute();
+                dlg.ChangeStatusBar();
                 companyList = companyListLoader.companyList;
                 bsCompanies.DataSource = companyList;
                 dgvCompanies.DataSource = bsCompanies;
@@ -88,5 +103,7 @@ namespace Kpo4311_hnv.Main
             //ICompanyListSaver saver = new CompanyListSplitFileSaver(AppGlobalSettings.dataFileName);
             //saver.Execute(companyList);
         }
+
+       
     }
 }
