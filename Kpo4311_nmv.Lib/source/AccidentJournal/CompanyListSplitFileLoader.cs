@@ -95,7 +95,7 @@ namespace Kpo4311_hnv.Lib
                     }
 
                     _status = LoadStatus.Success;
-                    _LoadStatus?.Invoke();
+                   _LoadStatus?.Invoke();
 
 
                 }
